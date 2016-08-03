@@ -1,1 +1,1 @@
-db.addUser("root","root123");
+db.addUser("admin","abc123");
