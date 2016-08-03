@@ -4,7 +4,7 @@
 #
 # Pull base image.
 FROM alpine:latest
-MAINTAINER 
+MAINTAINER qida
 # Install.
 ## use cn source
 RUN \
