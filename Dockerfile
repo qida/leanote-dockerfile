@@ -8,11 +8,8 @@ MAINTAINER qida
 # Install.
 ## use cn source
 RUN \
-  apt-get update && \
-  apt-get -y upgrade && \
-  apt-get install -y wget && \
-  rm -rf /var/lib/apt/lists/*
-
+  apk --update add wget && \
+ 
 # Add files.
 COPY addUser.js /root/addUser.js
 COPY start.sh /root/start.sh
