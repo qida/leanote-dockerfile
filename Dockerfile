@@ -1,20 +1,13 @@
 #
-# Ubuntu Dockerfile
+# Dockerfile
 #
-# https://github.com/dockerfile/ubuntu
 #
-
 # Pull base image.
-#FROM ubuntu:14.04
-## use docker.cn
-FROM ubuntu:latest
-MAINTAINER Nyk Ma <moe@nayuki.info>
-
+FROM alpine:latest
+MAINTAINER 
 # Install.
 ## use cn source
 RUN \
-  sed -i 's%/archive.ubuntu.com%/cn.archive.ubuntu.com%g' /etc/apt/sources.list && \ 
-  sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
   apt-get update && \
   apt-get -y upgrade && \
   apt-get install -y wget && \
@@ -32,13 +25,13 @@ ENV GOPATH /root/leanote/bin
 WORKDIR /root
 
 # Download leanote and mongodb.
-RUN wget https://github.com/leanote/leanote/releases/download/1.0-beta.3/leanote-linux-x86_64.v1.0-beta.3.bin.tar.gz -O leanote.tar.gz && \
-    wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.6.6.tgz -O mongodb.tgz
+RUN wget https://sourceforge.net/settings/mirror_choices?projectname=leanote-bin&filename=2.0/leanote-linux-amd64-v2.0.bin.tar.gz -O leanote.tar.gz && \
+    wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1204-3.2.8.tgz -O mongodb.tgz
 
 # Extract them.
 RUN tar -xvf leanote.tar.gz && \
     tar -xvf mongodb.tgz
-RUN ["/bin/bash", "-c", "mv /root/mongodb-linux-x86_64-2.6.6/bin/* /usr/local/bin/"]
+RUN ["/bin/bash", "-c", "mv /root/mongodb-linux-x86_64-ubuntu1204-3.2.8/bin/* /usr/local/bin/"]
 
 # Clean
 RUN rm leanote.tar.gz && \
