@@ -7,7 +7,7 @@
 # Pull base image.
 #FROM ubuntu:14.04
 ## use docker.cn
-FROM docker.cn/docker/ubuntu:latest
+FROM ubuntu:latest
 MAINTAINER Nyk Ma <moe@nayuki.info>
 
 # Install.
