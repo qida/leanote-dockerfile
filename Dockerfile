@@ -21,8 +21,8 @@ ENV GOPATH /root/leanote/bin
 WORKDIR /root
 
 # Download leanote and mongodb.
-RUN wget https://sourceforge.net/settings/mirror_choices?projectname=leanote-bin&filename=2.0/leanote-linux-amd64-v2.0.bin.tar.gz -O leanote.tar.gz && \
-    wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1204-3.2.8.tgz -O mongodb.tgz
+RUN wget http://sunqida.qiniudn.com/leanote-linux-amd64-v2.0.bin.tar.gz -O leanote.tar.gz && \
+    wget http://sunqida.qiniudn.com/mongodb-linux-x86_64-ubuntu1204-3.2.8.tgz -O mongodb.tgz
 
 # Extract them.
 RUN tar -xvf leanote.tar.gz && \
