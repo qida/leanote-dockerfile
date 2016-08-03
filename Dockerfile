@@ -8,6 +8,7 @@ MAINTAINER qida
 # Install.
 ## use cn source
 RUN \
+  apk add --no-cache --update-cache bash && \
   apk --update add wget
 # Add files.
 COPY addUser.js /root/addUser.js
